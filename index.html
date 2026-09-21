@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accedi | Coquette Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+
+  <div style="height: 50px;"></div>
+
+  <div class="coquette-card" style="max-width: 420px; text-align: center;">
+    <div style="font-size: 40px; margin-bottom: 10px;">🎀</div>
+    <h1 style="margin-bottom: 5px;">Benvenuta!</h1>
+    <p style="color: var(--pink-text-muted); font-size: 14px; margin-bottom: 30px;">
+      Accedi al tuo spazio personale di studio
+    </p>
+
+    <!-- Tasto Accesso Google -->
+    <a href="dashboard.html" class="btn-oauth">
+      <i class="fa-brands fa-google" style="color: #4285F4;"></i>
+      Continua con Google
+    </a>
+
+    <!-- Tasto Accesso Apple -->
+    <a href="dashboard.html" class="btn-oauth">
+      <i class="fa-brands fa-apple" style="color: #000000;"></i>
+      Continua con Apple
+    </a>
+
+    <div style="margin: 20px 0; color: var(--pink-border); font-size: 12px;">oppure</div>
+
+    <form action="dashboard.html">
+      <div style="text-align: left;">
+        <label style="font-size: 12px; font-weight: 600; color: var(--pink-text-muted);">Il tuo nome</label>
+        <input type="text" placeholder="es. Sofia, Giulia, Luna..." required>
+      </div>
+
+      <button type="submit" class="btn-coquette" style="margin-top: 10px;">
+        Entra nello studio ✨
+      </button>
+    </form>
+  </div>
+
+  <div class="footer-text">Fatto con 🎀 per studentesse instancabili</div>
+
+</body>
+</html>
