@@ -3,48 +3,287 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accedi | Coquette Studio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <title>Ciao Victoria ✨ | My Aesthetic Pink Workspace</title>
+  
+  <!-- Typography Coquette: Playfair Display + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pinkSoft: '#FFF0F5',
+            pinkPastel: '#FFD1DC',
+            pinkMedium: '#FF9EAA',
+            pinkAccent: '#FF6B8B',
+            pinkDark: '#9E3850',
+            pinkDeep: '#7A2238',
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E1 50%, #FFF5F7 100%);
+      min-height: 100vh;
+      color: #4A3E3D;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      border: 2px dashed #FFD1DC;
+      box-shadow: 0 8px 32px 0 rgba(255, 182, 193, 0.2);
+    }
+
+    .pink-banner {
+      background: linear-gradient(135deg, #FFB6C1 0%, #FF6B8B 50%, #FF8DA1 100%);
+      border: 2px dashed #FFFFFF;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+      opacity: 0;
+    }
+
+    .accordion-content.open {
+      max-height: 1200px;
+      opacity: 1;
+    }
+
+    @keyframes floatSparkle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-8px) rotate(15deg); opacity: 1; }
+    }
+
+    .sparkle {
+      animation: floatSparkle 3s ease-in-out infinite;
+    }
+  </style>
 </head>
-<body>
+<body class="font-sans pb-16">
 
-  <div style="height: 50px;"></div>
+  <!-- Banner Principale -->
+  <header class="w-full px-4 pt-8 pb-4 max-w-4xl mx-auto text-center">
+    <div class="relative overflow-hidden rounded-3xl p-8 sm:p-12 pink-banner shadow-xl text-white">
+      <span class="sparkle absolute top-4 left-6 text-2xl opacity-75">✨</span>
+      <span class="sparkle absolute bottom-4 right-8 text-3xl opacity-75" style="animation-delay: 1.5s;">🎀</span>
+      <span class="sparkle absolute top-6 right-12 text-xl opacity-70" style="animation-delay: 0.8s;">🌸</span>
+      
+      <h1 class="font-heading text-4xl sm:text-6xl font-extrabold tracking-wide mb-3 drop-shadow-sm">
+        Ciao Victoria <span class="inline-block animate-bounce">✨</span>
+      </h1>
+      <p class="text-pinkSoft text-sm sm:text-base font-medium opacity-90 mb-6 tracking-wider uppercase">
+        Il tuo spazio speciale per Università, Lavoro & Wellness 🎀
+      </p>
 
-  <div class="coquette-card" style="max-width: 420px; text-align: center;">
-    <div style="font-size: 40px; margin-bottom: 10px;">🎀</div>
-    <h1 style="margin-bottom: 5px;">Benvenuta!</h1>
-    <p style="color: var(--pink-text-muted); font-size: 14px; margin-bottom: 30px;">
-      Accedi al tuo spazio personale di studio
-    </p>
+      <!-- Isola Motivazionale -->
+      <div class="bg-white/20 backdrop-blur-md rounded-2xl p-5 max-w-xl mx-auto border border-white/30 shadow-inner">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-semibold uppercase tracking-widest text-pink-100 flex items-center gap-1">
+            <i class="fa-solid fa-heart text-pink-200"></i> Isola Motivazionale
+          </span>
+          <button onclick="newQuote()" title="Nuova frase" class="hover:rotate-180 transition-transform duration-500 text-white/80 hover:text-white">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+        </div>
+        <p id="quoteText" class="font-heading italic text-lg sm:text-xl font-medium leading-relaxed">
+          "Un passo alla volta, stai costruendo il tuo futuro con grazia e forza." 🎀
+        </p>
+      </div>
+    </div>
+  </header>
 
-    <!-- Tasto Accesso Google -->
-    <a href="dashboard.html" class="btn-oauth">
-      <i class="fa-brands fa-google" style="color: #4285F4;"></i>
-      Continua con Google
-    </a>
+  <!-- Moduli Operativi -->
+  <main class="max-w-4xl mx-auto px-4 mt-6">
+    <div class="mb-4 flex items-center justify-between">
+      <h2 class="font-heading text-2xl font-bold text-pinkDark flex items-center gap-2">
+        <i class="fa-solid fa-folder-open text-pinkAccent"></i> Le Tue Pagine & Moduli
+      </h2>
+      <span class="text-xs font-medium text-pinkDark bg-pinkPastel/60 px-3 py-1 rounded-full border border-pinkMedium/30">
+        Clicca per aprire
+      </span>
+    </div>
 
-    <!-- Tasto Accesso Apple -->
-    <a href="dashboard.html" class="btn-oauth">
-      <i class="fa-brands fa-apple" style="color: #000000;"></i>
-      Continua con Apple
-    </a>
+    <div class="space-y-4">
 
-    <div style="margin: 20px 0; color: var(--pink-border); font-size: 12px;">oppure</div>
-
-    <form action="dashboard.html">
-      <div style="text-align: left;">
-        <label style="font-size: 12px; font-weight: 600; color: var(--pink-text-muted);">Il tuo nome</label>
-        <input type="text" placeholder="es. Sofia, Giulia, Luna..." required>
+      <!-- 1. TRACKING ACQUA -->
+      <div class="glass-card rounded-2xl overflow-hidden">
+        <button onclick="toggleAccordion('sec-water')" class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-pinkPastel/30 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-500 flex items-center justify-center text-lg shadow-sm">💧</div>
+            <div>
+              <h3 class="font-semibold text-lg text-pinkDark">Tracking Acqua Giornaliera</h3>
+              <p class="text-xs text-gray-500">Obiettivo: 2 Litri (8 Bicchieri)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span id="waterBadge" class="text-xs font-bold bg-blue-50 text-blue-600 border border-blue-200 px-2.5 py-1 rounded-full">0 / 2L</span>
+            <i id="icon-sec-water" class="fa-solid fa-chevron-down text-pinkAccent transition-transform duration-300"></i>
+          </div>
+        </button>
+        <div id="sec-water" class="accordion-content">
+          <div class="p-6 pt-2 border-t border-pinkPastel/40">
+            <div class="w-full bg-blue-50 rounded-full h-4 mb-4 overflow-hidden p-0.5 border border-blue-100">
+              <div id="waterProgressBar" class="bg-gradient-to-r from-blue-300 to-blue-500 h-full rounded-full transition-all duration-500" style="width: 0%;"></div>
+            </div>
+            <div class="grid grid-cols-4 sm:grid-cols-8 gap-3 my-4" id="glassesGrid"></div>
+            <div class="flex justify-between items-center mt-6">
+              <button onclick="resetWater()" class="text-xs text-gray-400 hover:text-pinkAccent underline">Resetta giornata</button>
+              <div class="flex gap-2">
+                <button onclick="addWater(-1)" class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg text-sm font-bold">- 250ml</button>
+                <button onclick="addWater(1)" class="px-4 py-1.5 bg-blue-400 hover:bg-blue-500 text-white rounded-lg text-sm font-bold shadow-md">+ 250ml</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <button type="submit" class="btn-coquette" style="margin-top: 10px;">
-        Entra nello studio ✨
-      </button>
-    </form>
-  </div>
+      <!-- 2. LIBRETTO VOTI & MEDIA -->
+      <div class="glass-card rounded-2xl overflow-hidden">
+        <button onclick="toggleAccordion('sec-grades')" class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-pinkPastel/30 transition-colors">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg shadow-sm">📝</div>
+            <div>
+              <h3 class="font-semibold text-lg text-pinkDark">Libretto Voti & Media</h3>
+              <p class="text-xs text-gray-500">Calcolo media aritmetica e ponderata</p>
+            </div>
+          </div>
+          <i id="icon-sec-grades" class="fa-solid fa-chevron-down text-pinkAccent transition-transform duration-300"></i>
+        </button>
+        <div id="sec-grades" class="accordion-content">
+          <div class="p-6 pt-2 border-t border-pinkPastel/40">
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="bg-pinkSoft p-4 rounded-xl border border-pinkPastel text-center">
+                <span class="text-xs text-gray-500 uppercase tracking-wider font-medium">Media Aritmetica</span>
+                <p id="arithmeticAvg" class="text-2xl font-bold text-pinkDark mt-1">--</p>
+              </div>
+              <div class="bg-pinkSoft p-4 rounded-xl border border-pinkPastel text-center">
+                <span class="text-xs text-gray-500 uppercase tracking-wider font-medium">Media Ponderata</span>
+                <p id="weightedAvg" class="text-2xl font-bold text-pinkAccent mt-1">--</p>
+              </div>
+            </div>
+            <form onsubmit="addGrade(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+              <input type="text" id="gradeSubject" placeholder="Materia" required class="px-4 py-2.5 rounded-xl border border-pinkPastel text-sm">
+              <input type="number" min="18" max="30" id="gradeVal" placeholder="Voto (18-30)" required class="px-4 py-2.5 rounded-xl border border-pinkPastel text-sm">
+              <input type="number" min="1" max="15" id="gradeCfu" placeholder="CFU" required class="px-4 py-2.5 rounded-xl border border-pinkPastel text-sm">
+              <button type="submit" class="sm:col-span-3 px-5 py-2.5 bg-pinkAccent hover:bg-pinkDark text-white font-semibold rounded-xl text-sm transition-all shadow-md">Registra Voto 🌸</button>
+            </form>
+            <table class="w-full text-left text-sm">
+              <thead>
+                <tr class="border-b border-pinkPastel text-pinkDark font-semibold">
+                  <th class="py-2">Materia</th>
+                  <th class="py-2">Voto</th>
+                  <th class="py-2">CFU</th>
+                  <th class="py-2 text-right">Azione</th>
+                </tr>
+              </thead>
+              <tbody id="gradesTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-  <div class="footer-text">Fatto con 🎀 per studentesse instancabili</div>
+    </div>
+  </main>
 
+  <!-- Script Logica e Salvataggio Locale -->
+  <script>
+    const quotes = [
+      "\"Un passo alla volta, stai costruendo il tuo futuro con grazia e forza.\" 🎀",
+      "\"Sii orgogliosa di ogni piccolo progresso che fai ogni giorno.\" ✨",
+      "\"Il tuo unico limite è la tua determinazione. Risplendi, Victoria!\" 🌸"
+    ];
+
+    function newQuote() {
+      const q = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('quoteText').innerText = q;
+    }
+
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      const isOpen = content.classList.contains('open');
+      content.classList.toggle('open');
+      if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+
+    // Gestione Acqua
+    let waterGlasses = parseInt(localStorage.getItem('vic_water') || '0');
+    function renderWater() {
+      const grid = document.getElementById('glassesGrid');
+      grid.innerHTML = '';
+      for (let i = 1; i <= 8; i++) {
+        const isFilled = i <= waterGlasses;
+        grid.innerHTML += `<button onclick="setWaterExact(${i})" class="p-3 rounded-xl border flex flex-col items-center justify-center ${isFilled ? 'bg-blue-100 border-blue-300 text-blue-600' : 'bg-white/50 border-gray-200 text-gray-300'}"><i class="fa-solid fa-glass-water text-xl"></i></button>`;
+      }
+      document.getElementById('waterBadge').innerText = `${(waterGlasses * 0.25).toFixed(2)} / 2L`;
+      document.getElementById('waterProgressBar').style.width = `${(waterGlasses / 8) * 100}%`;
+      localStorage.setItem('vic_water', waterGlasses);
+    }
+    function addWater(c) { waterGlasses = Math.max(0, Math.min(8, waterGlasses + c)); renderWater(); }
+    function setWaterExact(count) { waterGlasses = count === waterGlasses ? count - 1 : count; renderWater(); }
+    function resetWater() { waterGlasses = 0; renderWater(); }
+
+    // Gestione Voti
+    function getGrades() { return JSON.parse(localStorage.getItem('vic_grades') || '[]'); }
+    function addGrade(e) {
+      e.preventDefault();
+      const subject = document.getElementById('gradeSubject').value;
+      const grade = parseFloat(document.getElementById('gradeVal').value);
+      const cfu = parseInt(document.getElementById('gradeCfu').value);
+      const list = getGrades();
+      list.push({ id: Date.now(), subject, grade, cfu });
+      localStorage.setItem('vic_grades', JSON.stringify(list));
+      document.getElementById('gradeSubject').value = '';
+      document.getElementById('gradeVal').value = '';
+      document.getElementById('gradeCfu').value = '';
+      renderGrades();
+    }
+    function deleteGrade(id) {
+      localStorage.setItem('vic_grades', JSON.stringify(getGrades().filter(g => g.id !== id)));
+      renderGrades();
+    }
+    function renderGrades() {
+      const tbody = document.getElementById('gradesTable');
+      const list = getGrades();
+      tbody.innerHTML = '';
+      if (list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="py-3 text-xs text-gray-400 italic">Nessun voto salvato.</td></tr>`;
+        document.getElementById('arithmeticAvg').innerText = '--';
+        document.getElementById('weightedAvg').innerText = '--';
+        return;
+      }
+      let totG = 0, totW = 0, totC = 0;
+      list.forEach(g => {
+        totG += g.grade; totW += (g.grade * g.cfu); totC += g.cfu;
+        tbody.innerHTML += `<tr class="border-b border-pinkSoft text-xs"><td class="py-2.5 font-medium">${g.subject}</td><td class="py-2.5 font-bold text-pinkDark">${g.grade}</td><td class="py-2.5">${g.cfu}</td><td class="py-2.5 text-right"><button onclick="deleteGrade(${g.id})" class="text-red-400"><i class="fa-solid fa-trash"></i></button></td></tr>`;
+      });
+      document.getElementById('arithmeticAvg').innerText = (totG / list.length).toFixed(2);
+      document.getElementById('weightedAvg').innerText = (totW / totC).toFixed(2);
+    }
+
+    window.onload = function() {
+      renderWater();
+      renderGrades();
+    }
+  </script>
 </body>
 </html>
